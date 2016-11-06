@@ -1,11 +1,15 @@
 import path from 'path';
 import StatsPlugin from 'stats-webpack-plugin';
 import fs from 'fs';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const nodeModules = {};
 fs.readdirSync(path.join(__dirname, 'node_modules'))
   .filter(x => ['.bin'].indexOf(x) === -1)
   .forEach(mod => nodeModules[mod] = `commonjs ${mod}`);
+
+const extractTextPlugin = new ExtractTextPlugin('[name].css');
+extractTextPlugin.options.allChunks = true;
 
 const config = server => ({
   entry: {
@@ -36,6 +40,10 @@ const config = server => ({
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        loader: extractTextPlugin.extract(['css'])
       }
     ]
   },
@@ -44,7 +52,8 @@ const config = server => ({
     new StatsPlugin('stats.json', {
       chunkModules: true,
       exclude: [/node_modules/]
-    })
+    }),
+    extractTextPlugin
   ]
 });
 
