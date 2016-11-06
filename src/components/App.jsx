@@ -13,6 +13,7 @@ class App extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/images/all">Images</Link></li>
             <li><Link to="/404">404</Link></li>
           </ul>
         </nav>
@@ -36,6 +37,15 @@ class App extends Component {
             pattern="/about"
             render={matchProps =>
               <Module module={() => System.import('./About')}>
+                {module => module ? <module.default {...matchProps}/> : null}
+              </Module>
+            }
+          />
+          <Match
+            exactly
+            pattern="/images/all"
+            render={matchProps =>
+              <Module module={() => System.import('./Images')}>
                 {module => module ? <module.default {...matchProps}/> : null}
               </Module>
             }

@@ -11,7 +11,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^4.0.0-alpha.5",
-    "react-router-server": "^1.0.5"
+    "react-router-server": "^1.0.10"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -24,6 +24,7 @@
     "css-loader": "^0.25.0",
     "ejs": "^2.5.2",
     "extract-text-webpack-plugin": "^2.0.0-beta",
+    "file-loader": "^0.9.0",
     "stats-webpack-plugin": "^0.4.2",
     "style-loader": "^0.13.1",
     "webpack": "^2.1.0-beta.25"

@@ -41,10 +41,8 @@ const config = server => ({
         exclude: /node_modules/,
         loader: 'babel'
       },
-      {
-        test: /\.css$/,
-        loader: extractTextPlugin.extract(['css'])
-      }
+      { test: /\.css$/, loader: extractTextPlugin.extract(['css']) },
+      { test: /\.(gif|png|jpg)$/, loader: 'file' }
     ]
   },
 
