@@ -11,7 +11,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^4.0.0-alpha.5",
-    "react-router-server": "^1.0.10"
+    "react-router-server": "^1.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
