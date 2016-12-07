@@ -39,10 +39,10 @@ const config = server => ({
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
-      { test: /\.css$/, loader: extractTextPlugin.extract(['css']) },
-      { test: /\.(gif|png|jpg)$/, loader: 'file' }
+      { test: /\.css$/, loader: extractTextPlugin.extract(['css-loader']) },
+      { test: /\.(gif|png|jpg)$/, loader: 'file-loader' }
     ]
   },
 
