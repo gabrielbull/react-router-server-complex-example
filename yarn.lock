@@ -2913,9 +2913,9 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-router-server@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-router-server/-/react-router-server-1.1.2.tgz#986c0415fa623552a9f8ced5f6946435e8d413e4"
+react-router-server@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-router-server/-/react-router-server-2.0.0.tgz#e3d459e5cf985cd703ce9a982ea42fa8e1aa15b1"
 
 react-router@^4.0.0-alpha.6:
   version "4.0.0-alpha.6"
