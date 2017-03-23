@@ -12,7 +12,7 @@
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
-    "react-router-server": "^2.1.0"
+    "react-router-server": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
