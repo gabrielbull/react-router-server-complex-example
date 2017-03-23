@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../build/server/app';
 import { renderToString, extractModules } from 'react-router-server';
-import { ServerRouter, createServerRenderContext } from 'react-router'
+import { StaticRouter } from 'react-router';
 import express from 'express';
 import path from 'path';
 import stats from '../build/public/stats.json';
@@ -11,26 +11,23 @@ app.use(express.static(path.join(__dirname, '..', 'build', 'public')));
 
 app.get('/*', function (req, res) {
   if (req.url) {
-    const context = createServerRenderContext();
+    const context = {}
     const server = (
-      <ServerRouter
+      <StaticRouter
         location={req.url}
         context={context}
       >
         <App/>
-      </ServerRouter>
+      </StaticRouter>
     );
 
     renderToString(server)
       .then(({ html, state, modules }) => {
-        const result = context.getResult();
-        if (result.redirect) {
-          res.redirect(result.redirect.pathname);
-        } else if (result.missed) {
-          res.status(404).render(
-            path.join(__dirname, '..', 'index.ejs'),
-            { html }
-          );
+        if (context.url) {
+          res.writeHead(302, {
+            Location: context.url
+          })
+          res.end()
         } else {
           const extracted = extractModules(modules, stats);
           res.render(
